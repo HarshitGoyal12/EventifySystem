@@ -31,7 +31,7 @@
 
 
 ## High Level Design of Project 
-![EventifyX - Page 2]()
+![EventifyX - Page 2](https://github.com/HarshitGoyal12/EventifySystem/blob/main/assets/HLD.png)
 
 ## ER model 
 ![diagram-export-24-01-2024-09_19_24](https://github.com/HarshitGoyal12/EventifySystem/blob/main/assets/ER_MODEL.png)
