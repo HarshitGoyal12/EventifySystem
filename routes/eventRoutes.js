@@ -1,0 +1,34 @@
+const express = require("express");
+const router = express.Router();
+const {protect} = require("../middlewares/authMiddleware")
+const cache = require("../middlewares/redisMiddleware")
+
+
+const {
+  getAllEvents,
+  getEventByCity,
+  getEventByInterest,
+  getEventByCityAndInterest,
+  searchEventByEventName,
+  getEventByEventId,
+  getUsersRegisteredForAnEvent
+} = require("../controllers/eventControllers");
+
+
+router.route("/").get(cache,protect,getAllEvents);
+router.route("/city/:cityName/").get(protect,getEventByCity);
+router.route("/interest/:interestName/").get(protect,getEventByInterest);
+
+router
+  .route("/search/city/:cityName/interest/:interestName/")
+  .get(protect,getEventByCityAndInterest);
+
+router
+  .route("/search/eventByName")
+  .get(protect,searchEventByEventName);
+
+router.route("/getEventBy/:event_id").get(protect,getEventByEventId)  
+router.route("/getUserForEvent/:event_id").get(getUsersRegisteredForAnEvent);
+
+module.exports = router ;
+
